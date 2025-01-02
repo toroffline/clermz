@@ -1,12 +1,18 @@
 {
   "name": "clermz",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "repository": "https://github.com/toroffline/clermz.git",
+  "author": "Narkkarux Tripiyaratana",
+  "license": "MIT",
+  "homepage": "https://toroffline.github.io/clermz",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "clermz": "file:",
@@ -14,6 +20,7 @@
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
+    "gh-pages": "^6.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
