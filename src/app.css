@@ -1,25 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
+  display: flex;
+  max-width: 100%;
+}
+
+.main-sidebar {
+  width: 16rem;
   padding: 2rem;
-  text-align: center;
+  border-right: 1px rgb(226, 226, 226) solid;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.preact:hover {
-  filter: drop-shadow(0 0 2em #673ab8aa);
+.main-nav li a {
+  display: block;
+  margin-top: 1rem;
 }
 
-.card {
-  padding: 2em;
+.main-content {
+  flex: 1 1 0%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 8rem 5rem 8rem 5rem;
 }
 
-.read-the-docs {
-  color: #888;
+.main-content section {
+  margin-top: 8rem;
+}
+
+section.introduce {
+  height: 100vh;
+}
+
+.lead-introduce {
+  margin: 0;
+  display: flex;
+}
+
+.full-name {
+  margin-top: auto;
+  line-height: 0.5rem;
+}
+
+.job-title {
+  margin: 0.5rem 0 0 0;
+  color: greenyellow;
 }

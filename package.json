@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "clermz": "file:",
     "preact": "^10.16.0"
   },
   "devDependencies": {
