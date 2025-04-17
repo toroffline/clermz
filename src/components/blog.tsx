@@ -1,4 +1,4 @@
-const Blog = (props: any) => {
+const Blog = (_props: any) => {
     return <></>
 
 }
