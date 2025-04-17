@@ -26,7 +26,7 @@ h5 {
 
 #app {
   display: flex;
-  max-width: 100%;
+  min-height: 100vh;
 }
 
 .main-sidebar {
@@ -48,14 +48,6 @@ h5 {
   padding: 8rem 5rem 8rem 5rem;
 }
 
-.main-content section {
-  margin-top: 8rem;
-}
-
-section.introduce {
-  height: 100vh;
-}
-
 .lead-introduce {
   margin: 0;
   display: flex;
@@ -69,4 +61,42 @@ section.introduce {
 .job-title {
   margin: 0.5rem 0 0 0;
   color: greenyellow;
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+  border : 1px solid #eaeaea;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.blog-item:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.blog-item h3 {
+  margin: 0;
+}
+
+.blog-item-type {
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 2rem;
+}
+
+.blog-item-btn-read {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.blog-section:not(:first-child) {
+  margin-top: 5rem;
 }
