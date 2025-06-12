@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_tests",
+  "info": {
+    "displayName": "test",
+    "icon": "chartPie"
+  },
+  "options": {},
+  "attributes": {
+    "testenum": {
+      "type": "enumeration",
+      "enum": [
+        "me",
+        "you"
+      ]
+    }
+  }
+}
