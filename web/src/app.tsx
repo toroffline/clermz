@@ -16,7 +16,7 @@ export function App() {
               <Link href="/">About</Link>
             </li>
             <li>
-              <Link href="/blog">Blog</Link>
+              <Link href="/blogs">Blogs</Link>
             </li>
             <li>
               <Link href="/">Contact</Link>
@@ -29,7 +29,7 @@ export function App() {
       <div className="main-content">
         <Router>
           <Landing path="/" />
-          <Blogs path="/blog" />
+          <Blogs path="/blogs" />
           <DummyPage path="/blogs/workout/1" />
         </Router>
       </div>

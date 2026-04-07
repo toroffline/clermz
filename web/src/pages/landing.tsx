@@ -9,7 +9,7 @@ const Landing = (_props: any) => {
             </div>
             <h2 className="job-title">Software Engineer</h2>
             <p>A bad boy who in love with Calisthenics, Vegie food, some cooking and some coding.</p>
-            <p>There's not much yet. Let's go see what's interesting in the <Link href="/blog">blog.</Link></p>
+            <p>There's not much yet. Let's go see what's interesting in the <Link href="/blogs">blog.</Link></p>
         </section>
     </>;
 };
