@@ -1,6 +1,5 @@
 import { Response } from "../types/strapiResponse";
 import { useStrapi } from "./useStrapi";
-import { BlogsResponse } from "../types/blog";
 
 export function useCollection() {
   const client = useStrapi();
@@ -10,10 +9,5 @@ export function useCollection() {
     return response.data;
   };
 
-  const getBlogs = async (): Promise<BlogsResponse> => {
-    const response = await client.get<BlogsResponse>("/blogs");
-    return response.data;
-  };
-
-  return { get, getBlogs };
+  return { get };
 }

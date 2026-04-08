@@ -1,16 +1,16 @@
-import { BlogAttributes } from "../types/blog";
+import { route } from "preact-router";
+import { BlogsAttributes } from "../types/blog";
 
-const BlogItem = (props: { attributes: BlogAttributes }) => {
+const BlogItem = (props: { attributes: BlogsAttributes }) => {
   const { attributes } = props;
-  const { title, description, category } = attributes;
+  const { title, description, category, slug } = attributes;
   const { name: categoryName } = category.data.attributes;
 
   return (
-    <div className="blog-item">
+    <div className="blog-item" onClick={() => route(`/blog/${slug}`)}>
       <div className="blog-item-info">
         <h4 className="blog-item-title">
           <BlogType type={categoryName} />
-          {/* {thumbnail && <img src={thumbnail} alt={title} className="blog-item-thumbnail" />} */}
           {title}
         </h4>
         <p>{description}</p>

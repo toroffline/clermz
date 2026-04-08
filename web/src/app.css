@@ -111,3 +111,60 @@ h5 {
 .blog-section:not(:first-child) {
   margin-top: 5rem;
 }
+
+.blog-markdown {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.blog-markdown h1,
+.blog-markdown h2,
+.blog-markdown h3 {
+  line-height: 1.25;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-markdown p,
+.blog-markdown ul,
+.blog-markdown ol,
+.blog-markdown blockquote,
+.blog-markdown pre {
+  margin: 1rem 0;
+}
+
+.blog-markdown ul,
+.blog-markdown ol {
+  padding-left: 1.5rem;
+}
+
+.blog-markdown a {
+  text-decoration: underline;
+}
+
+.blog-markdown blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  opacity: 0.9;
+}
+
+.blog-markdown pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #111;
+}
+
+.blog-markdown code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.blog-markdown img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.blog-markdown hr {
+  margin: 2rem 0;
+}

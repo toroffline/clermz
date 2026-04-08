@@ -1,11 +1,11 @@
 import { useEffect, useState } from "preact/hooks";
 import BlogItem from "../components/blogItem";
-import { useCollection } from "../hooks/useCollection";
-import { BlogAttributes } from "../types/blog";
+import { BlogsAttributes } from "../types/blog";
+import { useBlogCollection } from "../hooks/useBlogCollection";
 
 export function Blogs(_props: any) {
-  const collection = useCollection();
-  const [blogs, setBlogs] = useState<BlogAttributes[]>([]);
+  const collection = useBlogCollection();
+  const [blogs, setBlogs] = useState<BlogsAttributes[]>([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {

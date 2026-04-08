@@ -3,6 +3,7 @@ import Router from "preact-router";
 import { Blogs } from "./pages/blogs";
 import DummyPage from "./pages/dummy";
 import Landing from "./pages/landing";
+import { BlogContent } from "./components/blogContent";
 
 export function App() {
   return (
@@ -29,6 +30,7 @@ export function App() {
         <Router>
           <Landing path="/" />
           <Blogs path="/blogs" />
+          <BlogContent path="/blog/:slug" />
           <DummyPage path="/blogs/workout/1" />
         </Router>
       </div>

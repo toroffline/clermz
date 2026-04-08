@@ -1,6 +1,16 @@
 import { CollectionInformation } from "./strapiResponse";
 
-export type BlogAttributes = {
+export type BlogsAttributes = {
+  title: string;
+  description: string;
+  slug: string;
+  createdAt: Date;
+  category: {
+    data: CollectionInformation<BlogCategoryAttributes>;
+  };
+};
+
+export type BlogContentAttributes = {
   title: string;
   description: string;
   slug: string;
@@ -22,6 +32,11 @@ type BlogPagination = {
 };
 
 export type BlogsResponse = {
-  data: CollectionInformation<BlogAttributes>[];
+  data: CollectionInformation<BlogsAttributes>[];
+  meta: BlogPagination;
+};
+
+export type BlogContentResponse = {
+  data: CollectionInformation<BlogContentAttributes>;
   meta: BlogPagination;
 };
