@@ -1,0 +1,33 @@
+info:
+  name: get blogs
+  type: http
+  seq: 3
+
+http:
+  method: GET
+  url: "{{endpoint}}/api/blogs?fields[0]=slug&fields[1]=createdAt&fields[2]=title&fields[3]=description&populate[category][fields][0]=name"
+  params:
+    - name: fields[0]
+      value: slug
+      type: query
+    - name: fields[1]
+      value: createdAt
+      type: query
+    - name: fields[2]
+      value: title
+      type: query
+    - name: fields[3]
+      value: description
+      type: query
+    - name: populate[category][fields][0]
+      value: name
+      type: query
+  auth:
+    type: bearer
+    token: "{{api_key}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

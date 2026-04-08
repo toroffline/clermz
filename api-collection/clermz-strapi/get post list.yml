@@ -1,0 +1,17 @@
+info:
+  name: get post list
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: https://clermz-strapi.onrender.com/api/blogs
+  auth:
+    type: bearer
+    token: "{{api_key}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

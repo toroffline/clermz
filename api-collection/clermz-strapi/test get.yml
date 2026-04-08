@@ -1,0 +1,17 @@
+info:
+  name: test get
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:1338/api/posts/cqfnvy224k0iooj05ahudyg6
+  auth:
+    type: bearer
+    token: "{{api_key}}"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
