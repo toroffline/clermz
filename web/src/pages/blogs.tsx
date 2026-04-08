@@ -8,23 +8,23 @@ export function Blogs(_props: any) {
   const [blogs, setBlogs] = useState<BlogAttributes[]>([]);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const fetchBlogs = async () => {
       try {
         const { data } = await collection.getBlogs();
         setBlogs(data.map((item) => item.attributes));
       } catch (error) {
-        console.error("Failed to fetch articles:", error);
+        console.error("Failed to fetch blogs:", error);
       }
     };
 
-    fetchArticles();
+    fetchBlogs();
   }, []);
 
   return (
     <>
       <section>
         <h1>Blogs</h1>
-        <p>Welcome to my blogs! Here, I share my thoughts, experiences, and insights on various topics that interest me. From technology and programming to personal development and lifestyle, you'll find a mix of articles that reflect my passions and curiosities.</p>
+        <p>Welcome to my blogs! Here, I share my thoughts, experiences, and insights on various topics that interest me. From technology and programming to personal development and lifestyle, you'll find a mix of blogs that reflect my passions and curiosities.</p>
         <p>Feel free to explore, comment, and share your thoughts. I hope you find something that resonates with you!</p>
         <p>Happy reading!</p>
       </section>

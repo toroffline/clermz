@@ -1,8 +1,8 @@
 import "./app.css";
-import Router, { Link } from 'preact-router';
-import Landing from "./pages/landing";
+import Router from "preact-router";
 import { Blogs } from "./pages/blogs";
 import DummyPage from "./pages/dummy";
+import Landing from "./pages/landing";
 
 export function App() {
   return (
@@ -13,18 +13,17 @@ export function App() {
         <nav className="main-nav">
           <ul>
             <li>
-              <Link href="/">About</Link>
+              <a href="/">About</a>
             </li>
             <li>
-              <Link href="/blogs">Blogs</Link>
+              <a href="/blogs">Blogs</a>
             </li>
             <li>
-              <Link href="/">Contact</Link>
+              <a href="/">Contact</a>
             </li>
           </ul>
         </nav>
       </aside>
-
 
       <div className="main-content">
         <Router>
@@ -33,7 +32,6 @@ export function App() {
           <DummyPage path="/blogs/workout/1" />
         </Router>
       </div>
-
     </>
   );
 }

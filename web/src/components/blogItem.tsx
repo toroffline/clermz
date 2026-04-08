@@ -1,14 +1,11 @@
-import { route } from "preact-router";
 import { BlogAttributes } from "../types/blog";
 
 const BlogItem = (props: { attributes: BlogAttributes }) => {
   const { attributes } = props;
-  console.log({ attributes });
-  const { title, description, slug, category } = attributes;
+  const { title, description, category } = attributes;
   const { name: categoryName } = category.data.attributes;
 
   return (
-    // <div className="blog-item" onClick={() => route(linkUrl)}>
     <div className="blog-item">
       <div className="blog-item-info">
         <h4 className="blog-item-title">
