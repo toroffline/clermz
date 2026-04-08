@@ -1,17 +1,17 @@
 import { useEffect, useState } from "preact/hooks";
 import BlogItem from "../components/blogItem";
 import { useCollection } from "../hooks/useCollection";
-import { ArticleAttributes } from "../types/article";
+import { BlogAttributes } from "../types/blog";
 
 export function Blogs(_props: any) {
   const collection = useCollection();
-  const [articles, setArticles] = useState<ArticleAttributes[]>([]);
+  const [blogs, setBlogs] = useState<BlogAttributes[]>([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const { data } = await collection.getArticles();
-        setArticles(data.map((item) => item.attributes));
+        const { data } = await collection.getBlogs();
+        setBlogs(data.map((item) => item.attributes));
       } catch (error) {
         console.error("Failed to fetch articles:", error);
       }
@@ -30,7 +30,7 @@ export function Blogs(_props: any) {
       </section>
 
       <section>
-        {articles.map((article, index) => (
+        {blogs.map((article, index) => (
           <BlogItem key={article.slug ?? index} attributes={article} />
         ))}
       </section>

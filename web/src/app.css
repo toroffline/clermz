@@ -60,7 +60,7 @@ h5 {
 
 .job-title {
   margin: 0.5rem 0 0 0;
-  color: greenyellow;
+  color: rgb(161, 116, 30);
 }
 
 .blog-item {
@@ -68,7 +68,7 @@ h5 {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 2rem;
-  border : 1px solid #eaeaea;
+  border: 1px solid #eaeaea;
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: #f9f9f9;
@@ -79,7 +79,7 @@ h5 {
   cursor: pointer;
 }
 
-.blog-item h3 {
+.blog-item h4 {
   margin: 0;
 }
 
@@ -87,6 +87,17 @@ h5 {
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   font-size: 2rem;
+}
+
+.blog-item-react {
+  display: flex;
+  align-items: center;
+}
+
+.blog-item-published-at {
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.9rem;
 }
 
 .blog-item-btn-read {

@@ -6,8 +6,8 @@ export function useStrapi() {
 }
 
 function createClient() {
-  const apiToken = import.meta.env.VITE_STRAPI_API_TOKEN;
-  const url = import.meta.env.VITE_STRAPI_URL;
+  const url = process.env.STRAPI_URL;
+  const apiToken = process.env.STRAPI_API_TOKEN;
 
   if (!apiToken) {
     throw new Error("API token not found. Please set in .env");
@@ -16,7 +16,7 @@ function createClient() {
   const instance = axios.create({
     baseURL: url,
   });
-  instance.defaults.headers.common["Authorization"] = 'Bearer ' + apiToken;
+  instance.defaults.headers.common["Authorization"] = "Bearer " + apiToken;
 
   return instance;
 }

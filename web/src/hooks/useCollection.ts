@@ -1,6 +1,6 @@
 import { Response } from "../types/strapiResponse";
 import { useStrapi } from "./useStrapi";
-import { ArticleResponse } from "../types/article";
+import { BlogsResponse } from "../types/blog";
 
 export function useCollection() {
   const client = useStrapi();
@@ -11,10 +11,17 @@ export function useCollection() {
     return response.data;
   };
 
-  const getArticles = async (): Promise<ArticleResponse> => {
-    const response = await client.get<ArticleResponse>(`/api/articles?populate[category][fields][0]=name`);
+  const getBlogs = async (): Promise<BlogsResponse> => {
+    const response = await client.get<BlogsResponse>(`/api/blogs?
+      fields[0]=slug
+      &fields[1]=createdAt
+      &fields[2]=title
+      &fields[3]=description
+      &populate[category][fields][0]=name
+    `);
+
     return response.data;
   };
 
-  return { get, getArticles };
+  return { get, getBlogs };
 }
