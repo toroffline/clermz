@@ -1,9 +1,13 @@
-import { route } from "preact-router";
+import { route, type RoutableProps } from "preact-router";
 import { useEffect, useState } from "preact/hooks";
 import { useBlogCollection } from "../hooks/useBlogCollection";
 import MarkdownContent from "./markdownContent";
 
-export function BlogContent(props: { path: string; slug: string }) {
+type BlogContentProps = RoutableProps & {
+  slug?: string;
+};
+
+export function BlogContent(props: BlogContentProps) {
   const collection = useBlogCollection();
   const [blog, setBlog] = useState<any>(null);
   const [loading, setLoading] = useState(true);

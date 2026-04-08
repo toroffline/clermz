@@ -1,4 +1,4 @@
-import { BlogContentAttributes, BlogContentResponse, BlogsResponse } from "../types/blog";
+import { BlogContentAttributes, BlogsResponse } from "../types/blog";
 import { CollectionInformation } from "../types/strapiResponse";
 import { useStrapi } from "./useStrapi";
 
