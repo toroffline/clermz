@@ -1,9 +1,16 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getStrapiConfig } from "./_lib/strapi.js";
+import { proxyStrapi } from "./_lib/proxy.js";
+import { handleError } from "./_lib/strapi.js";
+import { NotFoundError } from "./_lib/errors.js";
+
+export type BlogContentResponse = {
+  data: any[];
+  meta: any;
+};
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const pathname = "/api/blogs";
   try {
-    const { strapiUrl, headers } = getStrapiConfig();
     const slug = req.query.slug;
 
     if (!slug || typeof slug !== "string") {
@@ -20,39 +27,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     params.append("fields[3]", "description");
     params.append("fields[4]", "content");
     params.append("populate[category][fields][0]", "name");
-
-    const response = await fetch(
-      `${strapiUrl}/api/blogs?${params.toString()}`,
-      {
-        headers,
+    const json = await proxyStrapi<BlogContentResponse>(res, {
+      pathname,
+      params,
+      cache: {
+        cdnSMaxAge: 1800,
+        staleWhileRevalidate: 86400,
+        staleIfError: 86400,
       },
-    );
+    });
 
-    console.log({ response });
-
-    if (!response.ok) {
-      const text = await response.text();
-      return res.status(response.status).json({
-        error: "Failed to fetch blog from Strapi",
-        details: text,
-      });
-    }
-
-    const json = await response.json();
     const firstItem = json?.data?.[0];
 
     if (!firstItem) {
-      return res.status(404).json({
-        error: "Blog not found",
-        slug,
-      });
+      throw new NotFoundError("Blog not found");
     }
 
     return res.status(200).json(firstItem);
   } catch (error) {
-    console.error("api/blog error:", error);
-    return res.status(500).json({
-      error: error instanceof Error ? error.message : "Internal server error",
-    });
+    handleError(pathname, error, res);
   }
 }

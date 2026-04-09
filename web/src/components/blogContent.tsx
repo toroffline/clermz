@@ -14,7 +14,6 @@ export function BlogContent(props: BlogContentProps) {
 
   useEffect(() => {
     const slug = props.slug;
-    console.log({ slug });
 
     if (!slug) {
       route("/blogs");
@@ -24,10 +23,7 @@ export function BlogContent(props: BlogContentProps) {
     const fetchBlog = async () => {
       try {
         const result = await collection.getBlogContentBySlug(slug);
-        console.log({ result });
-        const data = result;
-
-        setBlog(data?.attributes ?? null);
+        setBlog(result?.attributes ?? null);
       } catch (error) {
         console.error("Failed to fetch blog detail:", error);
       } finally {
