@@ -1,7 +1,10 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { getStrapiConfig } from "./_lib/strapi";
+import { getStrapiConfig } from "./_lib/strapi.js";
 
-export default async function handler(_req: VercelRequest, res: VercelResponse) {
+export default async function handler(
+  _req: VercelRequest,
+  res: VercelResponse,
+) {
   try {
     const { strapiUrl, headers } = getStrapiConfig();
 
@@ -12,9 +15,12 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
     params.append("fields[3]", "description");
     params.append("populate[category][fields][0]", "name");
 
-    const response = await fetch(`${strapiUrl}/api/blogs?${params.toString()}`, {
-      headers,
-    });
+    const response = await fetch(
+      `${strapiUrl}/api/blogs?${params.toString()}`,
+      {
+        headers,
+      },
+    );
 
     if (!response.ok) {
       const text = await response.text();
