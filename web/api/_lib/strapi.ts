@@ -11,6 +11,7 @@ export function getStrapiConfig() {
     headers: {
       Authorization: `Bearer ${strapiApiToken}`,
       "Content-Type": "application/json",
+      "Strapi-Response-Format": "v4",
     } as HeadersInit,
   };
 }
