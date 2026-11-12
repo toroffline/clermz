@@ -2,5 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "node",
   "buildCommand": "yarn build",
-  "outputDirectory": null
+  "outputDirectory": null,
+  "functions": {
+    "server.cjs": {
+      "includeFiles": "{,test-deploy-strapi-base/}{package.json,config/**,src/**,database/**,public/**,build/**}"
+    }
+  }
 }
