@@ -12,7 +12,16 @@ require.resolve("@strapi/plugin-users-permissions/strapi-server");
 require.resolve("@strapi/provider-email-sendmail");
 require.resolve("strapi-provider-upload-supabase");
 
-createStrapi({ appDir: __dirname, distDir: __dirname }).start().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+let requestHandler;
+
+module.exports = async function handleRequest(req, res) {
+  requestHandler ??= createStrapi({ appDir: __dirname, distDir: __dirname })
+    .load()
+    .then((strapi) => {
+      strapi.server.mount();
+      return strapi.server.app.callback();
+    });
+
+  const handle = await requestHandler;
+  return handle(req, res);
+};
